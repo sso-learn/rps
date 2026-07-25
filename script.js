@@ -21,15 +21,6 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function getHumanChoice() {
-  let humanChoice;
-  do {
-    let input = prompt("Rock, paper, or scissors?");
-    humanChoice = input ? input.toUpperCase() : input;
-  } while (!outcomes[humanChoice]);
-  return humanChoice;
-}
-
 function updateScore(result, humanScore, computerScore) {
   if (result === "win") return { humanScore: humanScore + 1, computerScore };
   if (result === "lose")
