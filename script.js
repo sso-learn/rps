@@ -1,4 +1,3 @@
-// Set up combination outcomes.
 const outcomes = {
   ROCK: {
     ROCK: "tie",
@@ -17,23 +16,11 @@ const outcomes = {
   },
 };
 
-// Grab choice from the computer player.
 function getComputerChoice() {
   const choices = Object.keys(outcomes);
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// Grab choice from the human player.
-function getHumanChoice() {
-  let humanChoice;
-  do {
-    let input = prompt("Rock, paper, or scissors?");
-    humanChoice = input ? input.toUpperCase() : input;
-  } while (!outcomes[humanChoice]);
-  return humanChoice;
-}
-
-// Update scores for players
 function updateScore(result, humanScore, computerScore) {
   if (result === "win") return { humanScore: humanScore + 1, computerScore };
   if (result === "lose")
@@ -41,7 +28,6 @@ function updateScore(result, humanScore, computerScore) {
   return { humanScore, computerScore };
 }
 
-// Compare choices and return outcome of a round.
 function playRound(humanChoice, computerChoice) {
   const roundResult = outcomes[humanChoice][computerChoice];
   console.log(
@@ -50,7 +36,6 @@ function playRound(humanChoice, computerChoice) {
   return roundResult;
 }
 
-// Play a full game with 5 rounds.
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
